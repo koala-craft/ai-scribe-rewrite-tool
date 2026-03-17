@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f0f0f0;
+  --foreground: #000000;
+  --panel: #ffffff;
+  --accent: #ff5c00;
+  --black: #000000;
+  --border-width: 2px;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-noto-sans-jp), sans-serif;
+}
+
+@theme {
+  --font-sans: var(--font-noto-sans-jp);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-space-grotesk);
+}
+
+@layer utilities {
+  .neo-shadow {
+    box-shadow: 6px 6px 0px var(--black);
+  }
+  .neo-shadow-sm {
+    box-shadow: 3px 3px 0px var(--black);
+  }
+  .neo-shadow-active {
+    box-shadow: 1px 1px 0px var(--black);
+  }
+  .neo-border {
+    border: var(--border-width) solid var(--black);
+  }
+}

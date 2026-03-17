@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCRIBE | 文体編集</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #F0F0F0;
+            --panel: #FFFFFF;
+            --accent: #FF5C00; 
+            --black: #000000;
+            --border-width: 2px;
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: all 0.1s ease-out;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: var(--bg);
+            color: var(--black);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .app-container {
+            width: 100%;
+            max-width: 480px;
+            padding: 24px;
+        }
+
+        header {
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 28px;
+            background: var(--black);
+            color: white;
+            padding: 2px 10px;
+            display: inline-block;
+        }
+
+        .ver-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--black);
+        }
+
+        /* Editor Card */
+        .card {
+            background: var(--panel);
+            border: var(--border-width) solid var(--black);
+            box-shadow: 6px 6px 0px var(--black);
+            margin-bottom: 32px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 180px;
+            border: none;
+            padding: 20px;
+            font-size: 15px;
+            font-family: inherit;
+            outline: none;
+            resize: none;
+            color: var(--black);
+            line-height: 1.6;
+        }
+
+        /* Japanese Button Grid */
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0px;
+            border-top: var(--border-width) solid var(--black);
+            background: var(--black);
+        }
+
+        .btn {
+            background: var(--panel);
+            border: none;
+            padding: 14px;
+            font-weight: 900;
+            font-size: 14px;
+            cursor: pointer;
+            outline: 1px solid var(--black);
+        }
+
+        .btn:hover {
+            background: var(--accent);
+            color: white;
+            z-index: 10;
+        }
+
+        .btn:active {
+            background: var(--black);
+            color: white;
+        }
+
+        /* Result Section */
+        .result-section {
+            padding-left: 4px;
+        }
+
+        .result-label {
+            font-weight: 900;
+            font-size: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .result-label::before {
+            content: '';
+            width: 12px;
+            height: 2px;
+            background: var(--accent);
+            display: block;
+        }
+
+        .result-display {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.5;
+            margin-bottom: 24px;
+            color: var(--black);
+            min-height: 40px;
+        }
+
+        .copy-trigger {
+            font-size: 11px;
+            font-weight: 900;
+            color: var(--black);
+            text-transform: uppercase;
+            cursor: pointer;
+            border: var(--border-width) solid var(--black);
+            padding: 6px 12px;
+            display: inline-block;
+            background: white;
+            box-shadow: 3px 3px 0px var(--black);
+        }
+
+        .copy-trigger:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0px var(--black);
+        }
+
+        .copy-trigger:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px var(--black);
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <header>
+        <div class="logo">SCRIBE</div>
+        <div class="ver-tag">β Ver 1.0</div>
+    </header>
+
+    <div class="card">
+        <textarea placeholder="ここに磨きたい文章を入力..."></textarea>
+        
+        <div class="controls">
+            <button class="btn">丁寧に</button>
+            <button class="btn">短く</button>
+            <button class="btn">わかりやすく</button>
+            <button class="btn">カジュアルに</button>
+        </div>
+    </div>
+
+    <div class="result-section">
+        <span class="result-label">書き換え結果</span>
+        <div class="result-display">
+            お疲れ様です。こちらが生成されたテキストになります。
+        </div>
+        <div class="copy-trigger">クリップボードにコピー</div>
+    </div>
+</div>
+
+</body>
+</html>
